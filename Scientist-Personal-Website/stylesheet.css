@@ -1,0 +1,57 @@
+.header {
+    text-align: center;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    color: pink;
+    font-size: 40px;
+}
+.profilepicandinfo {
+    display:grid;
+    grid-template-columns: auto 1fr;
+    margin: 10px;
+}
+.profilepicture {
+    display: inline-block;
+    height: 500px;
+    width: auto;
+    border: 30px solid pink;
+}
+
+.scientistpersonalinfo{
+    border: 10px solid cyan;
+    padding: 10px
+
+}
+
+.upcomingevents {
+    border-radius: 30px;
+    border: 10px solid yellow;
+    background-color: darkslategrey;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size:20px;
+    color: yellow;
+    border-radius:20%;
+    margin:2px;
+}
+
+.stylebutton{
+    border:6px solid red;
+    color: green;
+    border-radius: 40px;
+}
+
+.eventsandarticlescontainer {
+    border-radius: 30px;
+    border: 10px solid cyan;
+    background-color: pink;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+}
+
+    .eventsandarticlescontainer > h2 {
+        text-align: center;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        color: cyan;
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }

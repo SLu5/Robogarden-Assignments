@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8" />
+    <title>roboSolutions</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form>
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" pattern=".{8,}." required placeholder="Enter Your full name"/><br /><br />
+        <label for="experience">Experience:</label>
+        <input type="text" id="experience" name="experience" required placeholder="Enter your experiences"/>
+        <br /><br />
+        <label for="vacancies">Vacancies</label>
+        <select id="vacancies" name="vacancies" required>
+            <option value="Android Developer">Android Developer</option>
+            <option value="Full Stack Developer">Full Stack Developer</option>
+            <option value="Consultant">Consultant</option>
+            <option value="Research and development">Research and Development</option>
+        </select>
+        <br /><br />
+        <label for="jobtype">Job Type</label>
+        <select id="jobtype" name="jobtype" required>
+            <option value="Full-time">Full-time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Freelancer">Freelancer</option>
+            <option value="Internship">Internship</option>
+
+            </select>
+        <br /><br />
+        <button type="submit">Apply</button>
+
+    </form>
+</body>
+</html>
