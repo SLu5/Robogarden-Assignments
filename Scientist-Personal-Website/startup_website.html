@@ -43,17 +43,37 @@
             </ul>
         </div>
     </div>
-    <button class="stylebutton" type="button" onclick="style_me()">Style Me</button>
-    <div class="eventsandarticlescontainer">
-        <h1>Articles</h1>
+    <div class="buttonalign">
+        <button class="stylebutton" type="button" onclick="style_me()">Style Me</button>
+    </div>
+    <h1 class="articleshead">Articles</h1>
+    <div class="articlescontainer">
+        <div class="articlecontent">
+            <h2>Plank discovers Planck's Constant</h2>
+            <p> Max Plank has discovered Planck's Constant</p>
+        </div>
+        <hr />
+        <div class="articlecontent">
+            <h2>Plank discovers Theory of Quanta</h2>
+            <p> Max Plank has defined the theory of quanta</p>
+        </div>
+        <div class="articlecontent">
+            <h2>Plank invents Quantum Theory</h2>
+            <p> Max Plank has further expanded on their theory of quanta with quantum theory</p>
+        </div>
     </div>
     <form>
         <p>
             <label>Favorite Scientist</label>
-            <input type="text" placeholder="Who is your favorite scientist?" />
-            <button type="submit">Plus</button>
+            <input type="text" id="scientistinput" placeholder="Who is your favorite scientist?" /><br />
+            <button type="button" onclick="copyText()">Plus</button><br /><br />
+            <input type="text" id="scientistoutput" readonly />
         </p>
     </form>
     <script src="scientist.js"></script>
+
+
+
+
 </body>
 </html>
