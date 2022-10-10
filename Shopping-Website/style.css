@@ -1,0 +1,68 @@
+.jumbotron {
+    background-image: url(shopping.jpg);
+    background-size: cover;
+}
+
+.navbar-nav > li {
+    border: transparent solid 2px;
+}
+
+.navbar-nav li:hover {
+    border: green solid 2px;
+    background-color: lightblue;
+}
+
+.logofont1 {
+    font-family: 'Baskerville Old Face';
+}
+
+.logofont2 {
+    font-family: Elephant;
+    margin-left: -5px;
+}
+
+h1 > .logofont2 {
+    margin-left: -18px;
+}
+
+.logonavlink {
+    border: transparent solid 2px;
+}
+
+    .logonavlink:hover {
+        border: green solid 2px;
+        background-color: lightblue;
+    }
+
+.voltorbintroduction {
+    font-weight: bold;
+}
+
+footer li:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 1000px) {
+    .bg-light {
+        background-color: lightpink !important;
+    }
+}
+
+@media (max-width: 500px) {
+    .bg-light {
+        background-color: lightblue !important;
+        color: blue;
+    }
+}
+
+@media (max-width: 400px) {
+    .container .row{
+        flex-direction:column;
+    }
+}
+
+@media (min-width: 401px) {
+    .container .row{
+        flex-wrap:nowrap;
+    }
+}
