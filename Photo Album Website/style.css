@@ -1,24 +1,104 @@
 .jumbotron {
-    background-image: url(shopping.jpg);
+    background-image: url(jumbo.jpg);
     background-size: cover;
     margin: 0px 0px 0px 0px !important;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 100% 400%;
+    background-position: center;
 }
-.logofont1{
+
+.logofont1 {
     font-family: 'Kunstler Script';
-    font-size:2em;
+    font-size: 2em;
 }
-.logofont2{
+
+.logofont2 {
     font-family: Parchment;
     margin-left: -8px;
     font-size: 2em;
 }
-.gallery{
-    display:grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
 
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin: 3vw;
+    padding: 0px;
 }
+
+@media(max-width: 1200px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .gallery {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.gallery li {
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    background-color: lightgreen;
+}
+
+    .gallery li img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    .gallery li span {
+        border: 4px solid darkolivegreen;
+    }
+
+footer li:hover {
+    text-decoration: underline;
+}
+
+.feedbackform {
+    border: 2px solid darkolivegreen;
+    margin: 3vw 3vw 3vw 3vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+    .feedbackform h2 {
+        font-size: 2em;
+        font-family: 'Times New Roman', Times, serif;
+        color: darkolivegreen;
+    }
+
+.hidden {
+    visibility: hidden;
+}
+
+#submitbutton {
+    border: 2px solid darkolivegreen;
+    font-family: 'Times New Roman', Times, serif;
+    color: darkolivegreen;
+    border-radius: 20px;
+    font-size: 1.5em;
+}
+
+h2 {
+    font-family: Parchment;
+    text-align: center;
+    color: darkolivegreen;
+    font-size:6em;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    object-position: center;
+    height:70vh;
+    overflow:hidden;
+}
+
