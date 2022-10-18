@@ -66,3 +66,7 @@ footer li:hover {
         flex-wrap:nowrap;
     }
 }
+
+body{
+    background-color:lightcyan;
+}

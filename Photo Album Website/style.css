@@ -1,0 +1,24 @@
+.jumbotron {
+    background-image: url(shopping.jpg);
+    background-size: cover;
+    margin: 0px 0px 0px 0px !important;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100% 400%;
+}
+.logofont1{
+    font-family: 'Kunstler Script';
+    font-size:2em;
+}
+.logofont2{
+    font-family: Parchment;
+    margin-left: -8px;
+    font-size: 2em;
+}
+.gallery{
+    display:grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+
+}
