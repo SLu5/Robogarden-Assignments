@@ -4,12 +4,25 @@ const config = require('./config');
 const Student = require('./models/student');
 app.use(express.urlencoded({ extended: false }));
 
-let numberOfRequest = 1;
-app.use((req, res, next) => {
-   
-    console.log('number of request ' + numberOfRequest);
-    numberOfRequest++;
-    console.log('Request Type', req.method);
+const requestTotals = {
+    'GET': 0,
+    'POST': 0,
+    'PATCH': 0,
+    'DELETE': 0
+};
+
+app.use((req, _res, next) => {
+    requestTotals[req.method] = (requestTotals[req.method] ?? 0) + 1;
+    console.log(`Method: ${req.method}`);
+    
+    let totalRequests = 0;
+    let summary = '';
+    for (const method in requestTotals) {
+        totalRequests += requestTotals[method];
+        summary += ` ${method}: ${requestTotals[method]}`;
+    }
+    console.log(`Total Requests: ${totalRequests} ${summary}`);
+    
     next()
 })
 
@@ -37,6 +50,17 @@ app.get('/students/:student_id', async function (req, res) {
     try {
         let student_id = parseInt(req.params.student_id);
         const result = await Student.findByPk(student_id);
+        res.send(result);
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+
+app.get('/students/section/:section', async function (req, res) {
+
+    try {
+        let section = req.params.section;
+        const result = await Student.findAll({ where: { section: `${section}` } });
         res.send(result);
     } catch (err) {
         res.status(500).send(err);
