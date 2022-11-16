@@ -23,7 +23,6 @@ class UnderGraduates extends Student implements Iundergrad{
         this.batch = batch;
         this.GPA = GPA;
     }
-    
 }
 
 interface Iundergrad {
