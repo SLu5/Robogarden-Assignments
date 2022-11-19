@@ -8,7 +8,6 @@ import { TasksService } from 'src/app/services/tasks.service';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
-   
   tasks!: Itask[];
 
   constructor(private service: TasksService) {
@@ -16,7 +15,17 @@ export class TasksComponent implements OnInit {
       this.tasks = results;
     });
   }
-  
+
+
+  //setTasks(tasks:Itask[]): void {
+  //  this.tasks = tasks; //scope problem
+    
+  //}
+
+  //setTasks = (tasks: Itask[]): void => {
+  //  console.log(tasks);
+  //  this.tasks = tasks;
+  //}
 
   ngOnInit(): void {
   }
