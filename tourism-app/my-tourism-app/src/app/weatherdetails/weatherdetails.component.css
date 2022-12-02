@@ -1,0 +1,7 @@
+.tableborders{
+    border: 1px solid black;
+}
+
+  .tableborders th {
+    border: 1px solid black;
+  }

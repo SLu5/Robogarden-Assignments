@@ -1,0 +1,76 @@
+<form [formGroup]="techForm" (ngSubmit)="onSubmit()">
+  <h2>Got an Idea?</h2>
+  <div class="form-group">
+    <label for="userName">Username: </label>
+    <input type="text" class="form-control" placeholder="Enter your Username..." formControlName="userName" id="userName">
+    <div class="field-alert">
+      <div class="alert alert-danger" *ngIf="userNameFormControl.touched && userNameFormControl.errors?.['required']">
+        Username is required.
+      </div>
+      <div class="alert alert-danger" *ngIf="userNameFormControl.errors?.['minlength']">
+        Username must be more than 2 characters.
+      </div>
+      <div class="alert alert-danger" *ngIf="userNameFormControl.errors?.['prohibited']">
+        Username may not contain the word "tourist".
+      </div>
+    </div>
+
+  </div>
+  <hr>
+  <div class="form-group">
+    <label for="email">Email: </label>
+    <input type="email" class="form-control" placeholder="Enter your Email..." formControlName="email"
+           id="email">
+
+    <div class="alert alert-danger"
+          *ngIf="emailFormControl.touched && emailFormControl.errors?.['required']">
+     Email is required.
+    </div>
+    <div class="alert alert-danger"
+          *ngIf="emailFormControl.errors?.['pattern']">Email must be a valid email address</div>
+
+  </div>
+  <hr>
+  <div class="form-group">
+    <label for="age">Age: </label>
+    <input type="number" class="form-control" formControlName="age" id="age">
+
+    <div class="alert alert-danger" *ngIf="ageFormControl.touched && ageFormControl.errors?.['required']">
+     Age is required.
+    </div>
+
+  </div>
+  <hr>
+  <div class="form-group">
+    <label for="city">Target City: </label>
+    <select class="form-select" formControlName="city">
+      <option value="" selected disabled>Select a City...</option>
+      <option value="{{ cities }}" *ngFor="let city of cities">{{city}}</option>
+    </select>
+
+    <div class="alert alert-danger" *ngIf="cityFormControl.touched && cityFormControl.errors?.['required']">
+      A City must be selected.
+    </div>
+  </div>
+  <hr>
+  <div class="form-group">
+    <label for="brief">Brief about your technical idea: </label>
+    <textarea rows="4" cols="50" class="form-control" formControlName="brief" id="brief" placeholder="Enter tech idea here..."></textarea>
+
+    <div class="alert alert-danger" *ngIf="briefFormControl.touched && briefFormControl.errors?.['required']">
+      Brief is required.
+    </div>
+    <div class="alert alert-danger" *ngIf="briefFormControl.errors?.['minlength']">
+      Brief needs to be more than 100 characters.
+    </div>
+    <div class="alert alert-danger" *ngIf="briefFormControl.errors?.['prohibited']">
+      Brief may not contain the word nothing.
+    </div>
+
+  </div>
+
+
+  <button type="submit" class="btn btn-lg" [disabled]="techForm.invalid">Submit Idea!</button>
+
+
+</form>

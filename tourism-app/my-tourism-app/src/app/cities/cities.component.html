@@ -1,0 +1,12 @@
+
+    <div *ngFor="let city of cities">
+      <div class="card">
+       
+        <div class="card-body">
+          <h1 class="card-title" [ngClass]="{green: city.attractions.length > 2}">{{ city.name }}</h1>
+          <hr>
+          <p class="card-text">{{ city.attractions }}</p>
+        </div>
+      </div>
+      <br>
+    </div>

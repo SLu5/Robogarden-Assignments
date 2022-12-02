@@ -58,7 +58,7 @@ export class AddTaskComponent implements OnInit {
   }
 
   add_task() {
-
+    console.log(this.userForm.value)
   }
 
   ngOnInit(): void {
