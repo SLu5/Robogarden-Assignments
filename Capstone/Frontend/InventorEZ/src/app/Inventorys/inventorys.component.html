@@ -1,0 +1,5 @@
+<ion-accordion-group [multiple]="true">
+  <div *ngFor="let inventory_item of inventorys">
+    <app-inventory [inventory]="inventory_item"></app-inventory>
+  </div>
+</ion-accordion-group>

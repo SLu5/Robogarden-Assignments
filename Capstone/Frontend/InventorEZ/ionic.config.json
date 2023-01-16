@@ -1,0 +1,7 @@
+{
+  "name": "InventorEZ",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

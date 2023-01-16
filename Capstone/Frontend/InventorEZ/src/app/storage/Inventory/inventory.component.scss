@@ -1,0 +1,16 @@
+.ion-accordion{
+    border-radius: 15px;
+    border: solid 2px;
+    border-color: azure;
+}
+
+labelLayout{
+    display: grid;
+    grid-template-columns: 1fr .5fr .5fr;
+}
+
+inventoryLayout{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}

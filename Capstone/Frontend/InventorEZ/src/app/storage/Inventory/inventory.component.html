@@ -1,0 +1,15 @@
+<ion-accordion>
+  <ion-item slot="header" color="dark" class="labelLayout">
+    <ion-label>{{inventory.name}}</ion-label>
+    <ion-label>{{inventory.quantity}}</ion-label>
+    <ion-label>{{inventory.quantity_type}}</ion-label>
+  </ion-item>
+  <div class="ion-padding inventoryLayout" slot="content">
+    <div>Item ID: {{inventory.item_id}}</div>
+    <div>Item SKU: {{inventory.SKU}}</div>
+    <div><ion-button>Add More</ion-button></div>
+    <div>Price: {{inventory.price}}</div>
+    <div>Intended Sale Price: {{inventory.intended_sale_price}}</div>
+    <div><ion-button color="secondary">Record Sale</ion-button></div>
+  </div>
+</ion-accordion>

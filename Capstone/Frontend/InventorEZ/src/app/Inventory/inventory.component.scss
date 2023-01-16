@@ -1,0 +1,22 @@
+ion-accordion{
+    border-radius: 15px;
+    border: solid 2px;
+    border-color: azure;
+}
+
+.labelLayout{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.inventoryLayout{
+    display:grid !important;
+    width:100%;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr !important;
+    align-items: center !important;
+}
+
+.warning{
+    color: red;
+}
