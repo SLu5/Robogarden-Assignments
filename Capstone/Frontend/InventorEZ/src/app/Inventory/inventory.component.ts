@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CurrencyDisplayComponent } from '../currency-display/currency-display.component';
 import { Iinventory } from '../iinventory';
 
 @Component({

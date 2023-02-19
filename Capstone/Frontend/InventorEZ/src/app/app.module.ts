@@ -9,11 +9,12 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CurrencyDisplayComponent } from './currency-display/currency-display.component';
 
 @NgModule({
   declarations: [AppComponent,],
   imports: [CurrencyPipe, BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, CurrencyPipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

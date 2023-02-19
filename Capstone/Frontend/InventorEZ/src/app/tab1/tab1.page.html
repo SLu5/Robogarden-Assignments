@@ -20,18 +20,18 @@
     </ion-card-header>
 
     <ion-card-content>
-      <app-currency-display value="40"> </app-currency-display>
+      {{totalInv | currency: 'CAD'}}
     </ion-card-content>
   </ion-card>
 
   <ion-card color="secondary">
     <ion-card-header>
-      <ion-card-title>Inventory Purchased</ion-card-title>
+      <ion-card-title>Value of Inventory Sold</ion-card-title>
       <ion-card-subtitle>Last 30 Days </ion-card-subtitle>
     </ion-card-header>
 
     <ion-card-content>
-      12$
+      {{itemThirty | currency: 'CAD'}}
     </ion-card-content>
   </ion-card>
 
@@ -42,7 +42,7 @@
     </ion-card-header>
 
     <ion-card-content>
-      10$
+      {{saleThirty | currency: 'CAD'}}
     </ion-card-content>
   </ion-card>
 
@@ -53,7 +53,7 @@
     </ion-card-header>
 
     <ion-card-content>
-      4$
+      {{grossMargin | currency: 'CAD'}}
     </ion-card-content>
   </ion-card>
 

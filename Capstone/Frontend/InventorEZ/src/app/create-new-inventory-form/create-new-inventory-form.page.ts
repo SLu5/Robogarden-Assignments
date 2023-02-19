@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormControl, } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { InventorysService } from '../inventorys.service';
 import { ItemcrudService } from '../itemcrud.service';
 import { Item } from './models/item.model';
@@ -13,15 +15,15 @@ export class CreateNewInventoryFormPage implements OnInit {
  /* items!: Item[];*/
   userForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private service: InventorysService) {
+  constructor(private toastController: ToastController,formBuilder: FormBuilder, private service: InventorysService, private router: Router) {
     this.userForm = formBuilder.group({
-      item_id: ["birb"],
+      
       name: ["", [Validators.minLength(2), Validators.required]],
       SKU: ["", [Validators.required]],
-      quantity: ["", [Validators.required]],
+      quantity: ["", [Validators.required, Validators.min(0)]],
       quantity_type: ["", [Validators.required]],
-      price: ["", [Validators.required]],
-      intended_sale_price: ["", [Validators.required]]
+      price: ["", [Validators.required, Validators.min(0)]],
+      intended_sale_price: ["", [Validators.required, Validators.min(0)]]
 
 
 
@@ -37,6 +39,16 @@ export class CreateNewInventoryFormPage implements OnInit {
   //  )
 
   //}
+  async presentToast(position: 'top' | 'middle' | 'bottom', message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 1500,
+      position: position,
+    });
+
+    await toast.present();
+  }
+
   get item_id() {
     return this.userForm.get('item_id');
   }
@@ -60,7 +72,17 @@ export class CreateNewInventoryFormPage implements OnInit {
   }
 
   add_inventory() {
-    this.service.postInventory(this.userForm.value);
+    this.service.postInventory(this.userForm.value).subscribe((result) => {
+      console.log(result);
+
+      this.presentToast('top', 'New Inventory Item Created')
+
+      /*this.service.getList();*/
+      this.router.navigate(['../tabs/item']);
+      
+    });
+
+
   }
   ngOnInit(): void {
   }

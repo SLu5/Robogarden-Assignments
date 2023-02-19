@@ -1,5 +1,5 @@
 <ion-accordion color="dark">
-  <ion-item slot="header" color="dark" >
+  <ion-item slot="header" color="primary" >
    
       
         <ion-label>{{inventory.name}}</ion-label>
@@ -9,14 +9,15 @@
      
   
   </ion-item>
-  <ion-item [ngClass]="{'warning': inventory.intended_sale_price < inventory.price}" color="dark" class="ion-padding labelLayout" slot="content">
+  <ion-item [ngClass]="{'warning': inventory.intended_sale_price < inventory.price}" color="primary" class="ion-padding labelLayout" slot="content">
     <div class="inventoryLayout">
       <div>Item ID: {{inventory.item_id}}</div>
       <div>Item SKU: {{inventory.SKU}}</div>
-      <div><ion-button>Add More</ion-button></div>
-      <div>Price: {{inventory.price}}</div>
-      <div>Intended Sale Price: {{inventory.intended_sale_price}}</div>
-      <div><ion-button color="secondary">Record Sale</ion-button></div>
+      
+      <div>Price:    {{inventory.price | currency: 'CAD'}}</div>
+      <div>Intended Sale Price: {{inventory.intended_sale_price | currency: 'CAD'}}</div>
+      <div><ion-button color=secondary routerLink="add/{{inventory.item_id}}">Add More</ion-button></div>
+      <div><ion-button color="secondary" routerLink="record/{{inventory.item_id}}">Record Sale</ion-button></div>
     </div>
   </ion-item>
 </ion-accordion>

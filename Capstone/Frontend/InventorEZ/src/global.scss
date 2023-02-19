@@ -24,3 +24,14 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+ion-header {
+  ion-toolbar {
+    ion-title {
+      background-image: url('./assets/icon/logosmall3.png');
+      background-repeat: no-repeat;
+      background-position: 5px 3px;
+      background-position: right;
+    }
+  }
+}

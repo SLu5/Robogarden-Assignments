@@ -7,46 +7,98 @@
 
 <ion-content>
   <form [formGroup]="userForm" (ngSubmit)="add_inventory()">
-    <input type="hidden" formControlName="item_id" id="item_id" />
-    <div class="form-group">
+    <!--<input type="hidden" formControlName="item_id" id="item_id" />-->
+    <!--<div class="form-group">
       <label for="item_name">Item Name:</label>
       <input type="text" class="form-control" placeholder="Enter the Name of the item" formControlName="name" id="name" />
-    </div>
+    </div>-->
 
-    <div class="form-group">
-      <label for="SKU">SKU:</label>
-      <input type="text" class="form-control" placeholder="Enter the SKU" formControlName="SKU" id="SKU" />
-    </div>
+    <ion-item fill="solid" color="primary">
+      <ion-label position="floating">Item Name:</ion-label>
+      <ion-input placeholder="Enter the name of the item" type="text" class="form-control" formControlName="name" id="name" ngModel name></ion-input>
+      
+      <ion-note *ngIf="name?.errors?.['required'] && name?.touched" color="secondary" slot="error"> name is Required</ion-note>
+      <ion-note *ngIf="name?.errors?.['minlength'] && name?.touched" color="secondary" slot="error"> name must be at least 2 characters</ion-note>
+    </ion-item>
 
-    <div class="form-group">
-      <label for="quantity_type">Quantity type:</label>
-      <input type="text" class="form-control" placeholder="Enter the Quantity Type" formControlName="quantity_type" id="quantity_type" />
-    </div>
 
-    <div class="form-group">
-      <label for="quantity">Quantity:</label>
-      <input type="text" class="form-control" placeholder="Enter the Quantity" formControlName="quantity" id="quantity" />
-    </div>
+    <!--<div class="form-group inventoryForms">
+    <label for="SKU">SKU:</label>
+    <input type="text" class="form-control" placeholder="Enter the SKU" formControlName="SKU" id="SKU" />
+  </div>-->
 
-    <div class="form-group">
-      <label for="price">Price:</label>
-      <input type="text" class="form-control" placeholder="Enter the Price" formControlName="price" id="price" />
-    </div>
+    <ion-item fill="solid" color="primary">
+      <ion-label position="floating">SKU:</ion-label>
+      <ion-input placeholder="Enter the SKU for this item" type="text" class="form-control" formControlName="SKU" id="SKU" ngModel SKU></ion-input>
+      <ion-note *ngIf="SKU?.invalid && SKU?.touched" color="secondary" slot="error"> SKU is Required</ion-note>
+    </ion-item>
 
-    <div class="form-group">
-      <label for="intended_sale_price">Intended Sale Price:</label>
-      <input type="text" class="form-control" placeholder="Enter the Intended Sale Price" formControlName="intended_sale_price" id="intended_sale_price" />
-    </div>
 
-    <button type="button" (click)="add_inventory()">Submit</button>
+    <!--<div class="form-group">
+    <label for="quantity_type">Quantity type:</label>
+    <input type="text" class="form-control" placeholder="Enter the Quantity Type" formControlName="quantity_type" id="quantity_type" />
+  </div>-->
 
-    
+    <ion-item fill="solid" color="primary">
+      <ion-label position="floating">Quantity Type:</ion-label>
+      <ion-input placeholder="Enter the quantity type of the item in your records (each, lbs, kgs, etc.)" type="text" class="form-control" formControlName="quantity_type" id="quantity_type" ngModel quantity_type></ion-input>
+
+      <ion-note *ngIf="quantity?.errors?.['required'] && quantity?.touched" color="secondary" slot="error"> quantity is Required</ion-note>
+      <ion-note *ngIf="quantity?.errors?.['min'] && quantity?.touched" color="secondary" slot="error"> quantity cannot be less than 0</ion-note>
+    </ion-item>
+
+    <!--<div class="form-group">
+    <label for="quantity">Quantity:</label>
+    <input type="text" class="form-control" placeholder="Enter the Quantity" formControlName="quantity" id="quantity" />
+  </div>-->
+    <ion-item fill="solid" color="primary">
+      <ion-label position="floating">Quantity:</ion-label>
+      <ion-input placeholder="Enter the item's quantity" inputmode="decimal" type="number" class="form-control" formControlName="quantity" id="quantity" ngModel quantity></ion-input>
+      
+      <ion-note *ngIf="quantity?.invalid && quantity?.touched" color="secondary" slot="error"> quantity is Required</ion-note>
+    </ion-item>
+
+
+
+    <!--<div class="form-group">
+    <label for="price">Price:</label>
+    <input type="text" class="form-control" placeholder="Enter the Price" formControlName="price" id="price" />
+  </div>-->
+
+    <ion-item fill="solid" color="primary">
+      <ion-label position="floating">Price:</ion-label>
+      <ion-input placeholder="Enter the Price (cost paid) of the item" inputmode="decimal" type="number" class="form-control" formControlName="price" id="price" ngModel price></ion-input>
+
+      <ion-note *ngIf="price?.errors?.['required'] && price?.touched" color="secondary" slot="error"> Item Price is Required</ion-note>
+      <ion-note *ngIf="price?.errors?.['min'] && price?.touched" color="secondary" slot="error"> price cannot be less than 0</ion-note>
+    </ion-item>
+
+    <!--<div class="form-group">
+    <label for="intended_sale_price">Intended Sale Price:</label>
+    <input type="text" class="form-control" placeholder="Enter the Intended Sale Price" formControlName="intended_sale_price" id="intended_sale_price" />
+  </div>-->
+
+    <ion-item fill="solid" color="primary">
+      <ion-label position="floating">Intended Sale Price</ion-label>
+      <ion-input placeholder="Enter the Intended Sale Price (per item)" inputmode="decimal" type="number" class="form-control" formControlName="intended_sale_price" id="intended_sale_price" ngModel intended_sale_price></ion-input>
+
+
+      <ion-note *ngIf="intended_sale_price?.errors?.['required'] && intended_sale_price?.touched" slot="error"> Intended Sale Price is Required</ion-note>
+      <ion-note *ngIf="intended_sale_price?.errors?.['min'] && intended_sale_price?.touched" slot="error"> Intended Sale Price cannot be less than 0</ion-note>
+    </ion-item>
+    <!--<div class="alert alert-danger" *ngIf="intended_sale_price?.invalid && intended_sale_price?.touched">
+    <div *ngIf="intended_sale_price?.errors?.['required']">Intended Sale Price is Required</div>
+  </div>-->
+
+    <ion-button color="secondary" type="button" (click)="add_inventory()" [disabled]="userForm.invalid">Submit</ion-button>
+
+
 
 
   </form>
+  </ion-content>
 
 
 
 
 
-</ion-content>

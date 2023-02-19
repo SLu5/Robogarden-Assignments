@@ -20,9 +20,19 @@ const routes: Routes = [
         loadChildren: () => import('../create-new-inventory-form/create-new-inventory-form.module').then(m => m.CreateNewInventoryFormPageModule)
       },
       {
+        path: 'item/add/:item_id',
+        loadChildren: () => import('../add/add.module').then(m => m.AddPageModule)
+      },
+      {
+        path: 'item/sale/:item_id',
+        loadChildren: () => import('../record-sale/record-sale.module').then(m => m.RecordSalePageModule)
+      },
+
+      {
         path: 'history',
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
+
       {
         path: '',
         redirectTo: '/tabs/summary',

@@ -11,12 +11,20 @@ const Sale = config.define('Sale', {
         type: Sequelize.INTEGER,
         allowNull: false
     },
-    total_sell_price: {
+    sell_price_per_unit: {
         type: Sequelize.DECIMAL,
         allowNull: false
     },
     quantity_sold: {
         type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    date: {
+        type: Sequelize.DATEONLY,
+        allowNull: false
+    },
+    value_of_goods: {
+        type: Sequelize.DECIMAL,
         allowNull: false
     }
 }, { timestamps: false });

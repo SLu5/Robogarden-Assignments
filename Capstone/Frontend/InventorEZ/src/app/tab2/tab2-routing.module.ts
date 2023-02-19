@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+import { AddPage } from '../add/add.page';
 import { CreateNewInventoryFormPage } from '../create-new-inventory-form/create-new-inventory-form.page';
-import { NewFormButtonComponent } from '../new-form-button/new-form-button.component';
+import { RecordSalePage } from '../record-sale/record-sale.page';
+
 import { Tab2Page } from './tab2.page';
 
 const routes: Routes = [
@@ -10,7 +13,9 @@ const routes: Routes = [
     component: Tab2Page,
     children: []
   },
-  {path:'new', component:CreateNewInventoryFormPage}
+  { path: 'new', component: CreateNewInventoryFormPage },
+  { path: 'add/:item_id', component: AddPage },
+  {path: 'record/:item_id', component: RecordSalePage}
 ];
 
 @NgModule({

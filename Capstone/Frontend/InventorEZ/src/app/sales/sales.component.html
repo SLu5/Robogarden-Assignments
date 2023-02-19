@@ -1,0 +1,20 @@
+
+
+
+<form [formGroup]="userForm" (ngSubmit)="find_Date()">
+  <ion-item fill="solid" color="primary">
+
+
+
+    <ion-label position="floating">Search by Date:</ion-label>
+    <ion-input placeholder="Enter Date" inputmode="date" type="date" class="form-control" formControlName="date" id="date" ngModel date></ion-input>
+
+  </ion-item>
+  <ion-button color="tertiary" type="button" (click)="find_Date()">Find by Date</ion-button><ion-button color="tertiary" type="button" (click)="reset()">Clear Filter</ion-button>
+</form>
+
+  <ion-accordion-group [multiple]="true">
+    <div *ngFor="let sale_item of sales">
+      <app-sale [sale]="sale_item"></app-sale>
+    </div>
+  </ion-accordion-group>

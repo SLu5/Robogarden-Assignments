@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Record Sale of Items</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        Item ID: {{item_id}}
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="inventory">
+      <ion-label>
+        Item Name: {{inventory.name}}
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="inventory">
+      <ion-label>
+        Intended Sale Price Per Unit: {{inventory.intended_sale_price | currency: 'CAD'}}
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="inventory">
+      <ion-label>
+        Units in inventory: {{inventory.quantity}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+
+
+  <form [formGroup]="userForm" (ngSubmit)="add_sale()">
+    <ion-item fill="solid" color="primary">
+
+
+
+      <ion-label position="floating">Quantity sold:</ion-label>
+      <ion-input placeholder="Enter how many items were sold" inputmode="decimal" type="number" class="form-control" formControlName="quantity_sold" id="quantity_sold" ngModel quantity_sold></ion-input>
+
+      <ion-note *ngIf="quantity_sold?.errors?.['required'] && quantity_sold?.touched" color="secondary" slot="error"> quantity is Required</ion-note>
+      <ion-note *ngIf="quantity_sold?.errors?.['min'] && quantity_sold?.touched" color="secondary" slot="error"> quantity cannot be less than 0</ion-note>
+    </ion-item>
+
+    <ion-item fill="solid" color="primary">
+      <ion-label position="floating">Price:</ion-label>
+      <ion-input placeholder="Enter how much the items were sold for (per unit)." inputmode="decimal" type="number" class="form-control" formControlName="sell_price_per_unit" id="sell_price_per_unit" ngModel sell_price_per_unit></ion-input>
+
+      <ion-note *ngIf="sell_price_per_unit?.errors?.['required'] && sell_price_per_unit?.touched" color="secondary" slot="error"> Item Price is Required</ion-note>
+      <ion-note *ngIf="sell_price_per_unit?.errors?.['min'] && sell_price_per_unit?.touched" color="secondary" slot="error"> price cannot be less than 0</ion-note>
+    </ion-item>
+
+    <ion-item fill="solid" color="primary">
+      <ion-label position="floating">Date:</ion-label>
+      <ion-input placeholder="What date did the Transaction take place?" inputmode="date" type="date" class="form-control" formControlName="date" id="date" ngModel date></ion-input>
+
+      <ion-note *ngIf="date?.errors?.['required'] && date?.touched" color="secondary" slot="error"> Item Price is Required</ion-note>
+      
+    </ion-item>
+
+    <ion-button color="secondary" type="button" (click)="add_sale()" [disabled]="userForm.invalid">Submit</ion-button>
+  </form>
+</ion-content>
