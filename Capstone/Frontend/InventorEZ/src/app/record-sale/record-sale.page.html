@@ -33,7 +33,7 @@
 
 
   <form [formGroup]="userForm" (ngSubmit)="add_sale()">
-    <ion-item fill="solid" color="primary">
+    <ion-item fill="solid" color="primary" class="textInput" [ngClass]="{'textError': quantity_sold?.invalid && quantity_sold?.touched}">
 
 
 
@@ -44,7 +44,7 @@
       <ion-note *ngIf="quantity_sold?.errors?.['min'] && quantity_sold?.touched" color="secondary" slot="error"> quantity cannot be less than 0</ion-note>
     </ion-item>
 
-    <ion-item fill="solid" color="primary">
+    <ion-item fill="solid" color="primary" class="textInput" [ngClass]="{'textError': sell_price_per_unit?.invalid && sell_price_per_unit?.touched}">
       <ion-label position="floating">Price:</ion-label>
       <ion-input placeholder="Enter how much the items were sold for (per unit)." inputmode="decimal" type="number" class="form-control" formControlName="sell_price_per_unit" id="sell_price_per_unit" ngModel sell_price_per_unit></ion-input>
 
@@ -52,7 +52,7 @@
       <ion-note *ngIf="sell_price_per_unit?.errors?.['min'] && sell_price_per_unit?.touched" color="secondary" slot="error"> price cannot be less than 0</ion-note>
     </ion-item>
 
-    <ion-item fill="solid" color="primary">
+    <ion-item fill="solid" color="primary" class="textInput" [ngClass]="{'textError': date?.invalid && date?.touched}">
       <ion-label position="floating">Date:</ion-label>
       <ion-input placeholder="What date did the Transaction take place?" inputmode="date" type="date" class="form-control" formControlName="date" id="date" ngModel date></ion-input>
 

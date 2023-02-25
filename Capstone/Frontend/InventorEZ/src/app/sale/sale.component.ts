@@ -1,4 +1,6 @@
 import { Component,Input, OnInit } from '@angular/core';
+import { Iinventory } from '../iinventory';
+import { InventorysService } from '../inventorys.service';
 import { Isales } from '../isales';
 
 @Component({
@@ -8,7 +10,12 @@ import { Isales } from '../isales';
 })
 export class SaleComponent implements OnInit {
   @Input() sale!: Isales
-  constructor() { }
+  inventory!: Iinventory[];
+  constructor(private service: InventorysService) {
+    service.getInventorys().subscribe((results) => {
+      this.inventory = results;
+    })
+  }
 
   ngOnInit(): void{}
 

@@ -63,6 +63,8 @@ export class RecordSalePage implements OnInit {
     let formData = this.userForm.value;
     formData.item_id = this.inventory.item_id;
     formData.value_of_goods = this.inventory.price * formData.quantity_sold;
+    formData.total_sale_price = formData.sell_price_per_unit * formData.quantity_sold;
+    formData.profit = formData.total_sale_price - formData.value_of_goods;
     this.service.postSale(formData).subscribe((result) => {
       console.log(result);
 

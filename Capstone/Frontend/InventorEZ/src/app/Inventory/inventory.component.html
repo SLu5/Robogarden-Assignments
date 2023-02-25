@@ -1,15 +1,15 @@
-<ion-accordion color="dark">
-  <ion-item slot="header" color="primary" >
+<ion-accordion >
+  <ion-item slot="header" color="tertiary" >
    
       
         <ion-label>{{inventory.name}}</ion-label>
  
-        <ion-label>{{inventory.quantity}}</ion-label>
-        <ion-label>{{inventory.quantity_type}}</ion-label>
+        <ion-label class="ion-text-right">{{inventory.quantity}}&nbsp;</ion-label>
+        <ion-label> {{inventory.quantity_type}}</ion-label>
      
   
   </ion-item>
-  <ion-item [ngClass]="{'warning': inventory.intended_sale_price < inventory.price}" color="primary" class="ion-padding labelLayout" slot="content">
+  <ion-item [ngClass]="{'warning': inventory.intended_sale_price < inventory.price}" color="tertiary" class="ion-padding labelLayout" slot="content">
     <div class="inventoryLayout">
       <div>Item ID: {{inventory.item_id}}</div>
       <div>Item SKU: {{inventory.SKU}}</div>

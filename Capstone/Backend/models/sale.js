@@ -26,6 +26,14 @@ const Sale = config.define('Sale', {
     value_of_goods: {
         type: Sequelize.DECIMAL,
         allowNull: false
+    },
+    total_sale_price: {
+        type: Sequelize.DECIMAL,
+        allowNull: false
+    },
+    profit: {
+        type: Sequelize.DECIMAL,
+        allowNull: false
     }
 }, { timestamps: false });
 

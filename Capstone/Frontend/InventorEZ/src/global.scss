@@ -28,10 +28,33 @@
 ion-header {
   ion-toolbar {
     ion-title {
-      background-image: url('./assets/icon/logosmall3.png');
+        font-family: Impact;
+      background-image: url('./assets/icon/box.svg');
+      display:grid;
+      grid-template-columns:1fr 1fr;
       background-repeat: no-repeat;
       background-position: 5px 3px;
       background-position: right;
+      img {
+          width:50px;
+          
+      }
     }
   }
+}
+
+
+.textInput {
+  --background: #F2E9E4;
+  /*  --color: #fff;
+  --placeholder-color: #ddd;
+  --placeholder-opacity: .8;
+  --padding-bottom: 10px;
+  --padding-end: 10px;
+  --padding-start: 10px;
+  --padding-top: 10px;*/
+}
+
+.textError {
+  --background: #FFFCE8;
 }

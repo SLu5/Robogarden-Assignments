@@ -1,5 +1,5 @@
 <form [formGroup]="userForm" (ngSubmit)="find_Name()">
-  <ion-item fill="solid" color="primary">
+  <ion-item fill="solid" color="tertiary" class="textInput">
 
 
 
@@ -7,7 +7,7 @@
     <ion-input placeholder="Enter Date" inputmode="name" type="name" class="form-control" formControlName="name" id="name" ngModel name></ion-input>
 
   </ion-item>
-  <ion-button color="tertiary" type="button" (click)="find_Name()">Find by Name</ion-button><ion-button color="tertiary" type="button" (click)="reset()">Clear Filter</ion-button>
+  <ion-button color="secondary" type="button" (click)="find_Name()">Find by Name</ion-button><ion-button color="secondary" type="button" (click)="reset()">Clear Filter</ion-button>
 </form>
 
 

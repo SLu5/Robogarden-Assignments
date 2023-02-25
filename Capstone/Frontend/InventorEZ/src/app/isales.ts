@@ -5,6 +5,7 @@ export interface Isales {
   quantity_sold: number;
   date: Date;
   value_of_goods: number;
-
+  total_sale_price: number;
+  profit: number;
 
 }

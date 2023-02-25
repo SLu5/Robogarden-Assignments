@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Register New Item</ion-title>
+    <ion-title>Register New Item </ion-title>
 
   </ion-toolbar>
 </ion-header>
@@ -13,7 +13,7 @@
       <input type="text" class="form-control" placeholder="Enter the Name of the item" formControlName="name" id="name" />
     </div>-->
 
-    <ion-item fill="solid" color="primary">
+    <ion-item fill="solid" color="primary" class="textInput" [ngClass]="{'textError': name?.invalid && name?.touched}">
       <ion-label position="floating">Item Name:</ion-label>
       <ion-input placeholder="Enter the name of the item" type="text" class="form-control" formControlName="name" id="name" ngModel name></ion-input>
       
@@ -27,7 +27,7 @@
     <input type="text" class="form-control" placeholder="Enter the SKU" formControlName="SKU" id="SKU" />
   </div>-->
 
-    <ion-item fill="solid" color="primary">
+    <ion-item fill="solid" color="primary" class="textInput" [ngClass]="{'textError': SKU?.invalid && SKU?.touched}">
       <ion-label position="floating">SKU:</ion-label>
       <ion-input placeholder="Enter the SKU for this item" type="text" class="form-control" formControlName="SKU" id="SKU" ngModel SKU></ion-input>
       <ion-note *ngIf="SKU?.invalid && SKU?.touched" color="secondary" slot="error"> SKU is Required</ion-note>
@@ -39,19 +39,19 @@
     <input type="text" class="form-control" placeholder="Enter the Quantity Type" formControlName="quantity_type" id="quantity_type" />
   </div>-->
 
-    <ion-item fill="solid" color="primary">
+    <ion-item fill="solid" color="primary" class="textInput" [ngClass]="{'textError': quantity_type?.invalid && quantity_type?.touched}">
       <ion-label position="floating">Quantity Type:</ion-label>
       <ion-input placeholder="Enter the quantity type of the item in your records (each, lbs, kgs, etc.)" type="text" class="form-control" formControlName="quantity_type" id="quantity_type" ngModel quantity_type></ion-input>
 
-      <ion-note *ngIf="quantity?.errors?.['required'] && quantity?.touched" color="secondary" slot="error"> quantity is Required</ion-note>
-      <ion-note *ngIf="quantity?.errors?.['min'] && quantity?.touched" color="secondary" slot="error"> quantity cannot be less than 0</ion-note>
+      <ion-note *ngIf="quantity_type?.errors?.['required'] && quantity_type?.touched" color="secondary" slot="error"> quantity is Required</ion-note>
+      <ion-note *ngIf="quantity_type?.errors?.['min'] && quantity_type?.touched" color="secondary" slot="error"> quantity cannot be less than 0</ion-note>
     </ion-item>
 
     <!--<div class="form-group">
     <label for="quantity">Quantity:</label>
     <input type="text" class="form-control" placeholder="Enter the Quantity" formControlName="quantity" id="quantity" />
   </div>-->
-    <ion-item fill="solid" color="primary">
+    <ion-item fill="solid" color="primary" class="textInput" [ngClass]="{'textError': quantity?.invalid && quantity?.touched}">
       <ion-label position="floating">Quantity:</ion-label>
       <ion-input placeholder="Enter the item's quantity" inputmode="decimal" type="number" class="form-control" formControlName="quantity" id="quantity" ngModel quantity></ion-input>
       
@@ -65,7 +65,7 @@
     <input type="text" class="form-control" placeholder="Enter the Price" formControlName="price" id="price" />
   </div>-->
 
-    <ion-item fill="solid" color="primary">
+    <ion-item fill="solid" color="primary" class="textInput" [ngClass]="{'textError': price?.invalid && price?.touched}">
       <ion-label position="floating">Price:</ion-label>
       <ion-input placeholder="Enter the Price (cost paid) of the item" inputmode="decimal" type="number" class="form-control" formControlName="price" id="price" ngModel price></ion-input>
 
@@ -78,7 +78,7 @@
     <input type="text" class="form-control" placeholder="Enter the Intended Sale Price" formControlName="intended_sale_price" id="intended_sale_price" />
   </div>-->
 
-    <ion-item fill="solid" color="primary">
+    <ion-item fill="solid" color="primary" class="textInput" [ngClass]="{'textError': intended_sale_price?.invalid && intended_sale_price?.touched}">
       <ion-label position="floating">Intended Sale Price</ion-label>
       <ion-input placeholder="Enter the Intended Sale Price (per item)" inputmode="decimal" type="number" class="form-control" formControlName="intended_sale_price" id="intended_sale_price" ngModel intended_sale_price></ion-input>
 
@@ -91,9 +91,6 @@
   </div>-->
 
     <ion-button color="secondary" type="button" (click)="add_inventory()" [disabled]="userForm.invalid">Submit</ion-button>
-
-
-
 
   </form>
   </ion-content>
